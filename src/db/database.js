@@ -51,7 +51,6 @@ async function newToken(user) {
     const time = Date.now();
 
 
-
     if(lastSession) {
         if(time - lastSession.time < 50000 ) {
             return lastSession;
