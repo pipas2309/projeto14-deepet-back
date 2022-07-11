@@ -1,9 +1,20 @@
 import db from "../db/mongodb.js";
+import 'dotenv/config'; 
 
 export async function postProduct(req, res) {
-  await db.collection("products").insertOne(req.body);
-  res.sendStatus(200);
+
+  const security = req.headers
+  const key = process.env.SECURITY_POST_PRODUCT;
+
+  if(security.authorization === key) {
+    await db.collection("products").insertOne(req.body);
+    res.sendStatus(201);
+    return;
+  }
+
+  res.sendStatus(511);
   return;
+
 }
 
 export async function getProducts(req,res) {
