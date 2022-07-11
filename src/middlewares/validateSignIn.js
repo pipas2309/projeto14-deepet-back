@@ -10,6 +10,7 @@ async function validateSignIn(req, res, next) {
             res.status(422).send("Insira um email e senha válido!");
             return;
         }
+        console.log(user)
 
         res.locals.user = user;
         next();

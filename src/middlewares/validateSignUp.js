@@ -11,8 +11,6 @@ async function validateSignUp(req, res, next) {
             return;
         }
 
-        delete user.confirmPassword;
-
         res.locals.user = user;
         next();
 

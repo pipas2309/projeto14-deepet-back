@@ -1,7 +1,7 @@
 import db  from './mongodb.js';
-//import { ObjectId } from 'mongodb';
+import { ObjectId } from 'mongodb';
 import bcrypt from 'bcrypt';
-//import { v4 as uuid } from 'uuid';
+import { v4 as uuid } from 'uuid';
 
 async function createUser(user) { //finished
     try {
@@ -43,13 +43,11 @@ async function findUser(user) { //finished
 }
 
 async function newToken(user) { 
-    // código do token tirado do mywallet, precisa de revisão
-    /* 
+    
     const lastSession = await db.collection('tokens').findOne({userId: new ObjectId(user._id)});
-
+    console.log(lastSession)
     const token = uuid();
     const time = Date.now();
-
 
     if(lastSession) {
         if(time - lastSession.time < 50000 ) {
@@ -71,7 +69,7 @@ async function newToken(user) {
     }
 
     let userData = {
-        name: user.username,
+        name: user.name,
         email: user.email,
         userId: user._id,
         token,
@@ -81,7 +79,6 @@ async function newToken(user) {
     await db.collection('tokens').insertOne(userData);
 
     return userData;
-    */
 }
 
 export {

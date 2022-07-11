@@ -1,6 +1,7 @@
 import { findUser, newToken } from '../db/database.js';
 import bcrypt from 'bcrypt';
 
+
 async function login(req, res) {
     try {
         const user = res.locals.user;
@@ -22,10 +23,6 @@ async function login(req, res) {
             res.status(404).send('Usuário ou senha incorreto!');
             return;
         }
-
-        //
-        //  FALTA IMPLEMENTAR O TOKEN PARA A PARTE DE BAIXO FUNCIONAR CORRETAMENTE
-        //
 
         const session = await newToken(dbUser);
 
