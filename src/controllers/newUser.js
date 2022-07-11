@@ -17,6 +17,7 @@ async function newUser(req, res) {
         };
 
         if(created === 'created') {
+            console.log(user, ' usuario criado com sucesso')
             res.sendStatus(201);
             return;
         };
