@@ -7,7 +7,7 @@ export async function postProduct(req, res) {
 }
 
 export async function getProducts(req,res) {
-  const transactionList = await db.collection("products").find({}).toArray();
-  res.send(transactionList).status(200);
+  const productList = await db.collection("products").find({}).toArray();
+  res.send(productList).status(200);
   return;
 }
