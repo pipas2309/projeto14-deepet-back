@@ -1,4 +1,6 @@
-export async function tokenValidation(req, res, next) {
+import db from "../db/mongodb.js";
+
+export default async function tokenValidation(req, res, next) {
     const { authorization } = req.headers;
     const token = authorization?.replace("Bearer ", "");
   
