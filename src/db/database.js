@@ -45,7 +45,6 @@ async function findUser(user) { //finished
 async function newToken(user) { 
     
     const lastSession = await db.collection('tokens').findOne({userId: new ObjectId(user._id)});
-    console.log(lastSession)
     const token = uuid();
     const time = Date.now();
 
@@ -86,3 +85,4 @@ export {
     findUser,
     newToken
 };
+
